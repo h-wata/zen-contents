@@ -1,0 +1,23 @@
+{
+  "name": "zen-contents",
+  "version": "1.0.0",
+  "description": "![GitHub Stats Card](https://github-readme-stats.vercel.app/api?username=h-wata&count_private=true)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h-wata/h-wata.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/h-wata/h-wata/issues"
+  },
+  "homepage": "https://github.com/h-wata/h-wata#readme",
+  "dependencies": {
+    "zenn-cli": "^0.1.127"
+  }
+}

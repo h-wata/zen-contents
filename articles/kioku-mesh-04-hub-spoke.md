@@ -181,7 +181,7 @@ unit 名は hub と同じ `kioku-mesh-zenohd.service` です。1ホスト1 zenoh
 spoke 同士は互いを `--listen` にも `--connect` にも書きません。たとえば agent-server から laptop に直接繋ぐ設定は不要で、spoke-to-spoke の通信は hub である desktop の router transit を透過的に通ります。新 spoke を増やすときに既存 spoke の設定を触らずに済むのは、この性質のおかげです。
 :::
 
-### Boot order は気にしなくていい
+### 起動順は気にしなくていい
 
 desktop（hub）と spoke の起動順はどちらが先でも問題ありません。spoke 側 `zenohd` は `--connect 192.168.1.10` に届くまでリトライし続けます。3〜5台規模で `mem/**` がまだ少ない状態のコールドスタートなら、おおよそ 30〜60 秒で収束します。
 

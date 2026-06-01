@@ -6,6 +6,8 @@ topics: ["mcp", "claudecode", "codex", "zenoh", "ai"]
 published: false
 ---
 
+@[card](https://github.com/h-wata/kioku-mesh)
+
 :::message
 本記事は Claude（AI）の支援を受けて執筆しています。内容は著者がレビュー・編集したうえで公開しています。
 :::

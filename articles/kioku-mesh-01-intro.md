@@ -1,5 +1,5 @@
 ---
-title: "kioku-mesh とは — AI コーディングエージェントの記憶を分散させない"
+title: "複数の PC・AI エージェント間で長期記憶を共有する OSS『kioku-mesh』を作った"
 emoji: "🧠"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["mcp", "claudecode", "codex", "zenoh", "ai"]

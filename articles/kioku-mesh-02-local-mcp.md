@@ -3,7 +3,7 @@ title: "kioku-mesh を Claude Code と Codex CLI に MCP として繋ぐ"
 emoji: "🪺"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["mcp", "claudecode", "codex", "python", "ai"]
-published: false
+published: true
 ---
 
 :::message

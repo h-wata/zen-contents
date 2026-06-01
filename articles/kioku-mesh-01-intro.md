@@ -1,11 +1,9 @@
 ---
-
 title: "kioku-mesh とは — AI コーディングエージェントの記憶を分散させない"
 emoji: "🧠"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: \["mcp", "claudecode", "codex", "zenoh", "ai"]
+topics: ["mcp", "claudecode", "codex", "zenoh", "ai"]
 published: true
-
 ---
 
 :::message

@@ -1,5 +1,5 @@
 ---
-title: "kioku-mesh のメッシュを mTLS で締める"
+title: "kioku-mesh #5 - kioku-mesh のメッシュを mTLS で締める"
 emoji: "🔐"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenoh", "mtls", "tls", "security", "ai"]

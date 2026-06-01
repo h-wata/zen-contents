@@ -1,5 +1,5 @@
 ---
-title: "kioku-mesh で hub を立てて spoke を繋ぎ、マシン横断の共有メモリを作る"
+title: "kioku-mesh #4 - kioku-mesh で hub を立てて spoke を繋ぎ、マシン横断の共有メモリを作る"
 emoji: "🛰️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenoh", "mcp", "claudecode", "codex", "ai"]

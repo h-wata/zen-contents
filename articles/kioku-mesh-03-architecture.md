@@ -1,5 +1,5 @@
 ---
-title: "kioku-mesh の中身を理解する — Zenoh と RocksDB と SQLite index"
+title: "kioku-mesh #3 - kioku-mesh の中身を理解する — Zenoh と RocksDB と SQLite index"
 emoji: "🧩"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenoh", "rocksdb", "sqlite", "mcp", "ai"]

@@ -48,11 +48,11 @@ kioku-mesh は、その要件に対して次のスタンスを取ります。
 - **MCP ネイティブ**: Claude Code、Codex CLI、Gemini CLI、その他 MCP クライアントから同じプールを読み書きできる
 - **ローカルファースト**: まずは1台・SQLite だけで動く。必要になったらメッシュに昇格させる
 
-README から引用すると、コンセプトはこの一文に集約されています。
+README の冒頭にはこう書かれています。
 
 > Shared memory for AI coding agents, across tools and machines.
 
-「ツール横断」と「マシン横断」を同じ memory プールで成立させる、というのが kioku-mesh の主張です。
+ツール横断とマシン横断を同じ memory プールで成立させたい、というのが kioku-mesh の出発点です。
 
 ## アーキテクチャの全体像
 
@@ -83,14 +83,11 @@ flowchart LR
   AZ <==>|"Zenoh mesh replication<br/>LAN / VPN / Tailscale · TCP 7447"| BZ
 ```
 
-押さえておきたいのは次の3点です。
+読み方は3つです。
 
-1. **source of truth は Zenoh + RocksDB**
-   ホストごとに `zenohd` が動き、RocksDB に observation を保存します。ホスト間ではこの層が Zenoh のレプリケーションで同期します。
-2. **読みは SQLite index**
-   各ホストの SQLite は RocksDB から構築されるローカルな「読み専用インデックス」です。エージェントから見ると `search` がローカル SQLite で完結するため、速い。別途同期する「コピー」ではなく、いつでも捨てて作り直せるキャッシュという扱いです。
-3. **エージェントは MCP 経由**
-   各エージェントは MCP server (`kioku-mesh-mcp`) 経由で save/search します。エージェント側に Zenoh の知識は不要です。
+1. source of truth は Zenoh + RocksDB。ホストごとに `zenohd` が動いて RocksDB に observation を保存し、ホスト間はこの層が Zenoh のレプリケーションで同期する。
+2. 読みは SQLite index。各ホストの SQLite は RocksDB から構築されるローカルな読み専用インデックスで、`search` はここで完結する。同期で揃えるコピーではなく、いつでも捨てて作り直せるキャッシュ。
+3. エージェントは MCP 経由。`kioku-mesh-mcp` 越しに save/search するだけで、エージェント側に Zenoh の知識は要らない。
 
 なお1台だけで使う `local` モードでは Zenoh も RocksDB も使わず、SQLite 単体で完結します。この場合の保存はあくまでローカル止まりで、メッシュには載りません。
 

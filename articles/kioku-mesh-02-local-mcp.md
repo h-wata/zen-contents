@@ -117,7 +117,7 @@ kioku-mesh は誰が何を保存したかを区別するため、いくつかの
 
 ## Claude Code に MCP として登録する
 
-ここからが本題です。`kioku-mesh mcp install` がクライアントごとに必要な設定を書き込んでくれます。
+`kioku-mesh mcp install` がクライアントごとに必要な設定を書き込んでくれます。
 
 ```bash
 kioku-mesh mcp install --client claude-code
@@ -150,18 +150,18 @@ kioku-mesh mcp install --client claude-code -e MESH_MEM_SESSION_ID=morning-pair
 kioku-mesh mcp install --client codex-cli
 ```
 
-こちらはデフォルトで `MESH_MEM_AGENT_FAMILY=codex`、`MESH_MEM_CLIENT_ID=codex-cli` がセットされます。**`local` モードの SQLite は同じファイルを指しているので、Claude Code が保存した観測を Codex CLI が読めるし、その逆もできます**。これが「ツール横断の共有メモリ」の最小形です。
+こちらはデフォルトで `MESH_MEM_AGENT_FAMILY=codex`、`MESH_MEM_CLIENT_ID=codex-cli` がセットされます。`local` モードの SQLite は両者で同じファイルを指すので、Claude Code が保存した観測を Codex CLI から読めますし、逆もできます。これが「ツール横断の共有メモリ」の最小形です。
 
 Claude Desktop / Gemini CLI / ChatGPT Desktop など、その他のクライアントは `docs/mcp-clients.md` と `docs/multi-agent.md` を参照してください（v0.3 時点で `mcp install` のターゲットは Claude Code と Codex CLI の2つです）。
 
 ## 動作確認：エージェント横断で保存 → 検索
 
-ここまでで、`local` モードの SQLite を **Claude Code と Codex CLI が共有している状態** になっています。簡単に動作確認しましょう。
+ここまでで、`local` モードの SQLite を Claude Code と Codex CLI が共有している状態になっています。簡単に動作確認しましょう。
 
-1. **Claude Code 側**で、たとえばこう頼みます。
+1. Claude Code 側で、たとえばこう頼みます。
    > 「kioku-mesh に『今日は kioku-mesh を試している』を `note` として保存して」
 2. Claude Code が `save_observation` 相当の MCP ツールを叩いて保存します。
-3. **Codex CLI 側**で別セッションを開き、こう頼みます。
+3. Codex CLI 側で別セッションを開き、こう頼みます。
    > 「kioku-mesh で『kioku-mesh』を検索して」
 4. Codex CLI が `search_memory` 相当のツールを叩き、1. で保存したエントリが返ってきます。
 
@@ -175,15 +175,15 @@ kioku-mesh search "kioku-mesh"
 
 ## ここまでで「ツール横断」は達成
 
-`local` モードはあくまで **1台に閉じた SQLite**です。同じマシン上にいる Claude Code / Codex CLI の間では memory が共有されますが、**別マシンには伝播しません**。
+`local` モードはあくまで1台に閉じた SQLite です。同じマシン上にいる Claude Code / Codex CLI の間では memory が共有されますが、別マシンには伝播しません。
 
 > In mesh mode the Zenoh/RocksDB store is the source of truth, and each host's SQLite is a fast local read cache rebuilt from it — not a separate copy you have to reconcile. `local` mode is a standalone, SQLite-only setup for a single machine, so its saves live only in that local store and are not replicated to a mesh.（README より）
 
-つまり「マシン横断」を達成するには `hub` / `spoke` モードに切り替える必要があります。`init --mode hub --force` でいつでも切り替えできるので、`local` で動作感覚をつかんでから次に進むのが安全です。
+マシン横断にしたいときは `hub` / `spoke` モードに切り替えます。`init --mode hub --force` でいつでも切り替えられるので、`local` で動作感覚をつかんでから次に進むのが安全です。
 
 ## 次回予告
 
-第3回では、メッシュモードの裏側で動いている **Zenoh + RocksDB + SQLite index** の関係を整理します。「source of truth はどこで、なぜ SQLite が読みキャッシュなのか」「`zenohd` は何をしているのか」「`local` から `hub/spoke` に切り替えたとき、既存の保存はどうなるのか」あたりを押さえます。
+第3回では、メッシュモードの裏側で動いている Zenoh + RocksDB + SQLite index の関係を整理します。「source of truth はどこで、なぜ SQLite が読みキャッシュなのか」「`zenohd` は何をしているのか」「`local` から `hub/spoke` に切り替えたとき、既存の保存はどうなるのか」あたりを扱います。
 
 第4回で実際にメッシュを組むときの理解が一段深くなる回です。
 

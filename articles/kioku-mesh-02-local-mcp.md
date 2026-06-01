@@ -11,8 +11,10 @@ published: false
 :::
 
 :::message
-本記事は **kioku-mesh 連載 第2回** です。前回はコンセプトとアーキテクチャを整理しました。今回は手元1台で `local` モードを動かし、Claude Code と Codex CLI に MCP として組み込んで「片方で保存 → もう片方で検索」までやります。前回はこちら → [kioku-mesh とは](#)
+本記事は **kioku-mesh 連載 第2回** です。前回はコンセプトとアーキテクチャを整理しました。今回は手元1台で `local` モードを動かし、Claude Code と Codex CLI に MCP として組み込んで「片方で保存 → もう片方で検索」までやります。前回はこちら → [kioku-mesh とは](https://zenn.dev/h_wata/articles/kioku-mesh-01-intro)
 :::
+
+@[card](https://github.com/h-wata/kioku-mesh)
 
 ## ゴール
 
@@ -141,4 +143,4 @@ kioku-mesh search "kioku-mesh"
 
 - [kioku-mesh (GitHub)](https://github.com/h-wata/kioku-mesh)
 - `docs/mcp-clients.md` / `docs/multi-agent.md`（リポジトリ内）
-- 連載第1回: [kioku-mesh とは](#)
+- 連載第1回: [kioku-mesh とは](https://zenn.dev/h_wata/articles/kioku-mesh-01-intro)

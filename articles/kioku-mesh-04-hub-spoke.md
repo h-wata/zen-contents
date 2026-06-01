@@ -14,6 +14,8 @@ published: false
 本記事は **kioku-mesh 連載 第4回** です。前回までで kioku-mesh の中身（Zenoh + RocksDB + SQLite index）を整理しました。今回は実機で hub を1台立て、spoke を繋いで、「Host A で保存 → Host B で検索」を成立させます。連載のゴールにあたる回です。
 :::
 
+@[card](https://github.com/h-wata/kioku-mesh)
+
 ## ゴール
 
 - 1台を hub に仕立てる（`init --mode hub`）
@@ -308,6 +310,6 @@ mTLS まで必要としない読者は、ここまでで連載は完結として
 - リポジトリ内: `config/peers/example_5peer.md`（5ピア実例）
 - リポジトリ内: `docs/mtls.md`（次回の予習）
 - [Zenoh 公式ドキュメント](https://zenoh.io/docs/)
-- 連載第1回: [kioku-mesh とは](#)
+- 連載第1回: [kioku-mesh とは](https://zenn.dev/h_wata/articles/kioku-mesh-01-intro)
 - 連載第2回: [1台で動かして Claude Code / Codex CLI から使う](#)
 - 連載第3回: [Zenoh と RocksDB と SQLite index の役割](#)

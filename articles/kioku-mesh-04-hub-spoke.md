@@ -7,6 +7,10 @@ published: false
 ---
 
 :::message
+本記事は Claude（AI）の支援を受けて執筆しています。内容は著者がレビュー・編集したうえで公開しています。
+:::
+
+:::message
 本記事は **kioku-mesh 連載 第4回** です。前回までで kioku-mesh の中身（Zenoh + RocksDB + SQLite index）を整理しました。今回は実機で hub を1台立て、spoke を繋いで、「Host A で保存 → Host B で検索」を成立させます。連載のゴールにあたる回です。
 :::
 

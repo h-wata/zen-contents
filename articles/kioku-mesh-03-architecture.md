@@ -7,6 +7,10 @@ published: false
 ---
 
 :::message
+本記事は Claude（AI）の支援を受けて執筆しています。内容は著者がレビュー・編集したうえで公開しています。
+:::
+
+:::message
 本記事は **kioku-mesh 連載 第3回** です。前回は `local` モードを1台で動かし、Claude Code / Codex CLI に MCP として組み込みました。今回はメッシュモードの中身、特に「source of truth はどこか」「なぜ SQLite が別にいるのか」を整理します。次回（第4回）で hub/spoke を実際に立てるための土台になる回です。
 :::
 

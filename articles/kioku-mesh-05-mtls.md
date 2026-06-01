@@ -7,6 +7,10 @@ published: false
 ---
 
 :::message
+本記事は Claude（AI）の支援を受けて執筆しています。内容は著者がレビュー・編集したうえで公開しています。
+:::
+
+:::message
 本記事は kioku-mesh 連載 第5回（最終回・任意）です。前回までで desktop（hub）+ laptop / agent-server（spoke）の3台メッシュを構築し、双方向 replication を確認しました。今回はその上に mTLS を被せ、「ネットワーク到達できる＝信頼する」モデルから「証明書を持つピアだけ信頼する」モデルに引き上げます。Tailscale ACL のミス耐性や、信頼できない LAN で動かすケースの保険として有効です。
 :::
 

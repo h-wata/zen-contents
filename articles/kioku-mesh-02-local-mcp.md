@@ -47,7 +47,7 @@ kioku-mesh doctor
 `pip install kioku-mesh` でも動きますが、グローバル環境を汚さないため、また MCP クライアント側に渡す絶対パスがブレないために、本連載では `uv tool install` を推奨します。
 :::
 
-入る2つのコマンドはこんな役割分担です。
+それぞれの役割はこうです。
 
 - `kioku-mesh`: 人間用 CLI（メンテ・デバッグで時々叩く）
 - `kioku-mesh-mcp`: MCP クライアントから起動される stdio MCP server。**実運用ではここしか使いません**

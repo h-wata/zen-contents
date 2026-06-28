@@ -1,17 +1,15 @@
 ---
+
 title: "AI エージェントの長期記憶は Graph DB を「正本」にしない"
 emoji: "🗂️"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["ai", "memory", "graphdb", "vectordb", "zenoh"]
+topics: \["ai", "memory", "graphdb", "vectordb", "zenoh"]
 published: true
+
 ---
 
 :::message
 本記事は Claude（AI）の支援を受けて執筆しています。内容は著者がレビュー・編集したうえで公開しています。
-:::
-
-:::message
-本記事は kioku-mesh 連載の番外編です。前回までで local モードから mTLS まで一通り構築しました。今回はコードの手順ではなく、「長期記憶を何に保存するか」という設計判断について書きます。
 :::
 
 @[card](https://github.com/h-wata/kioku-mesh)

@@ -20,7 +20,7 @@ published: true
 
 連載第4回でメッシュを組むとき、何も知らずに `init --mode hub` から始めても動きはしますが、トラブルシュート時に「いま壊れているのはどの層？」が判断できません。今回はそこをはっきりさせます。
 
-この回で扱うのは次の3点です。
+扱うのはこのあたりです。
 
 1. Zenoh + RocksDB が source of truth、SQLite は読みキャッシュ
 2. 書き込みは Zenoh → SQLite の順に流れる
@@ -54,7 +54,7 @@ flowchart LR
 - 書き: エージェント → `kioku-mesh-mcp` → `zenohd` → RocksDB
 - 読み: エージェント → `kioku-mesh-mcp` → ローカル SQLite
 
-なぜ非対称にしてあるのか、というのが以下の話です。
+この非対称さは狙ってそうしていて、以下がその理由です。
 
 ## なぜ Zenoh + RocksDB が source of truth なのか
 
@@ -80,7 +80,7 @@ mem/tomb/{agent_family}/{client_id}/{pc_id}/{session_id}/{observation_id}
 
 ## なぜ SQLite が別にいるのか
 
-「source of truth が RocksDB なら、検索もそこに直接かければよいのでは？」と思うところですが、kioku-mesh は意図的に分けています。理由は2つです。
+「source of truth が RocksDB なら、検索もそこに直接かければよいのでは？」と思うところですが、kioku-mesh はあえて分けています。理由は次の2点です。
 
 ### 1. 検索クエリが SQL 向きだから
 

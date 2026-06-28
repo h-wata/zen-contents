@@ -41,7 +41,7 @@ SQLite は正本ではありません。壊れても古くなっても、Zenoh /
 
 ## 論文を読んで整理できたこと
 
-きっかけは [“Are We Ready For An Agent-Native Memory System?”](https://arxiv.org/abs/2606.24775) という論文でした。エージェントのメモリを単なる RAG や Vector Search ではなく、データ管理システムとして捉える、という視点が示されています。
+きっかけは [“Are We Ready For An Agent-Native Memory System?”](https://arxiv.org/pdf/2606.24775) という論文でした。エージェントのメモリを単なる RAG や Vector Search ではなく、データ管理システムとして捉える、という視点が示されています。
 
 メモリの表現方法はひとつではありません。時系列をそのまま残す stream、圧縮する summary、曖昧な意味検索が得意な vector、関係をたどる graph、それらを混ぜた hybrid。どれかが常に最強ということはなく、得意分野と引き換えに弱点を抱えています。
 
@@ -115,7 +115,7 @@ Graph DB も Vector DB も Summary も便利ですが、それらは記憶その
 
 ## 参考リンク
 
-- 論文: [Are We Ready For An Agent-Native Memory System?](https://arxiv.org/abs/2606.24775)
+- 論文: [Are We Ready For An Agent-Native Memory System?](https://arxiv.org/pdf/2606.24775)
 - 連載第1回: [kioku-mesh とは](https://zenn.dev/h_wata/articles/kioku-mesh-01-intro)
 - 連載第3回: [kioku-mesh の中身を理解する — Zenoh と RocksDB と SQLite index](https://zenn.dev/h_wata/articles/kioku-mesh-03-architecture)
 - リポジトリ: [h-wata/kioku-mesh](https://github.com/h-wata/kioku-mesh)

@@ -3,7 +3,7 @@
 title: "kioku-mesh - なぜ AI の長期記憶に Zenoh を使うのか"
 emoji: "🔗"
 type: "tech"
-topics: \["mcp", "claudecode", "zenoh", "kiokumesh", "ai"]
+topics: ["mcp", "claudecode", "zenoh", "kiokumesh", "ai"]
 published: true
 
 ---

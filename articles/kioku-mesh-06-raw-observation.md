@@ -3,7 +3,7 @@
 title: "AI エージェントの長期記憶は Graph DB を「正本」にしない"
 emoji: "🗂️"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: \["ai", "memory", "graphdb", "vectordb", "zenoh"]
+topics: ["ai", "memory", "graphdb", "vectordb", "zenoh"]
 published: true
 
 ---

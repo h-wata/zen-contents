@@ -28,19 +28,38 @@ Pane 5: Aux-Shell              SSH等の汎用利用
 Pane 6: Worker 4 (Codex)       設計相談・cross-review
 ```
 
+全体の構成はこう。
+
 ```mermaid
-flowchart TB
-    User[ユーザー] --> Dispatcher
-    Dispatcher["Dispatcher (Pane 0, Claude)"] -->|task YAML + tmux通知| W1["Worker1 (Claude)"]
-    Dispatcher -->|task YAML + tmux通知| W2["Worker2 (Claude)"]
-    Dispatcher -->|task YAML + tmux通知| W3["Worker3 (Claude)"]
-    Dispatcher -->|task YAML + tmux通知| W4["Worker4 (Codex)"]
-    W1 -->|report YAML| Dispatcher
-    W2 -->|report YAML| Dispatcher
-    W3 -->|report YAML| Dispatcher
-    W4 -->|report YAML| Dispatcher
-    Watch["watch.sh"] -.->|report検知 / 停止検知| Dispatcher
+flowchart LR
+    User([ユーザー]) --> Dispatcher["Dispatcher (Pane 0)"]
+    subgraph Workers["Worker (Pane 1-3 Claude / Pane 6 Codex)"]
+        direction TB
+        W1["Worker1"]
+        W2["Worker2"]
+        W3["Worker3"]
+        W4["Worker4 (Codex)"]
+    end
+    Dispatcher -->|task YAML| Workers
+    Workers -->|report YAML| Dispatcher
+    Watch["watch.sh"] -.->|検知・通知| Dispatcher
     Dispatcher --> Dashboard["dashboard.md"]
+```
+
+1タスクが流れる順序はこう。
+
+```mermaid
+sequenceDiagram
+    participant D as Dispatcher
+    participant Q as queue/projects/<project>
+    participant W as Worker
+    participant Dash as dashboard.md
+
+    D->>Q: task YAML 書き込み
+    D->>W: tmux通知
+    W->>Q: report YAML 書き込み
+    Q-->>D: report検知 (watch.sh)
+    D->>Dash: 更新委譲
 ```
 
 ## Dispatcherはコードを書かない

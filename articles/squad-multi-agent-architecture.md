@@ -3,7 +3,7 @@
 title: "tmux + Claude Code + Codex CLIでマルチエージェント開発チームを組んでみた"
 emoji: "🤖"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: \["claudecode", "AIエージェント", "tmux", "マルチエージェント"]
+topics: ["claudecode", "AIエージェント", "tmux", "マルチエージェント"]
 published: true
 
 ---
